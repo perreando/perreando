@@ -29,6 +29,10 @@ app.use(session);
 app.use(passport.initialize());
 app.use(passport.session())
 
+//ruta a home
+app.get('/', (req, res, next) => {
+  res.render('home')
+});
 
 app.use((req, res, next) => {
   res.locals.path = req.path;
