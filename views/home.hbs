@@ -1,1 +1,30 @@
-<h2>Home</h2>
+<div class="HomeContainer">
+  <div class="HomeContainer__content">
+    <div class="HomeContainer__actions">
+      <div class="HomeContainer__actions-title">El portal de tu mascota</div>
+      <div class="HomeContainer__actions-content">
+        {{#if session.email }}
+        <div class="HomeContainer__actions-button">
+          <a class="nav-link {{#isActive path '/users' true }} active {{/isActive}}" href="/users">Users</a>
+        </div>
+      {{/if}}
+      {{#if session.email }}
+        <div class="HomeContainer__actions-button">
+          <a class="nav-link" href="/profile">{{ session.email }}</a>
+        </div>
+        <div class="HomeContainer__actions-button">
+          <a class="nav-link" href="/logout">LOGOUT</a>
+        </div>
+      {{else}}
+        <div class="HomeContainer__actions-button">
+          <a class="nav-link {{#isActive path '/register' true }} active {{/isActive}}" href="/register">Regístrate</a>
+        </div>
+        <span>ó</span>
+        <div class="HomeContainer__actions-button">
+          <a class="nav-link {{#isActive path '/login' true }} active {{/isActive}}" href="/login">Haz Login</a>
+        </div>
+      {{/if}}
+      </div>
+    </div>
+  </div>
+</div>
