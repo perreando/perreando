@@ -20,8 +20,8 @@ module.exports.doRegister = (req, res, next) => {
       if (user) {
         renderWithErrors({ email: 'Email already registered'})
       } else {
-        user = new User(req.body);
-        return user.save()
+        const registerUser = new User(req.body);
+        return User.create(registerUser)
           .then(user => res.redirect('/login'))
       }
     })
