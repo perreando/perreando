@@ -5,5 +5,11 @@
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+    {{#if session.email}}
+    <a href="">Edit Profile</a>
+    <a href="">My Profile</a>
+    <a href="">Pet Friends</a>
+    <a href="/logout">Logout</a>
+    {{/if}}
   </div>
 </nav>
