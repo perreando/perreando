@@ -14,6 +14,99 @@ a {
 ul,li {
   list-style-type: none;
 }
+input {
+  border: 1px solid blue;
+}
+
+
+
+[type="radio"]:checked,
+[type="radio"]:not(:checked) {
+    position: absolute;
+    left: -9999px;
+}
+[type="radio"]:checked + label,
+[type="radio"]:not(:checked) + label
+{
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+    line-height: 20px;
+    display: inline-block;
+    color: #666;
+}
+[type="radio"]:checked + label:before,
+[type="radio"]:not(:checked) + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #ddd;
+    border-radius: 100%;
+    background: #fff;
+}
+[type="radio"]:checked + label:after,
+[type="radio"]:not(:checked) + label:after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background: blue;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    border-radius: 100%;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+[type="radio"]:not(:checked) + label:after {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+[type="radio"]:checked + label:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+
+
+
+
+
+.input-checkbox{
+  display: flex;
+  align-items: center;
+}
+input[type=checkbox] {
+  visibility: hidden;
+}
+
+.profile-checkbox + label {
+	display: block;
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
+  background: rgba(61,170,230,1);
+  margin-bottom: 0;
+  margin-right: 10px;
+}
+
+.profile-checkbox:checked + label::before {
+	display: block;
+	content: "\2713";
+	text-align: center;
+	font-size: 13px;
+	color: white;
+}
+
+
+
+
+
+
 .MainContainer{
   /*padding-top: 80px;*/
 }
@@ -77,3 +170,39 @@ ul,li {
   border-radius: 15px;
   padding: 25px;
 }
+.UserList{
+  padding-top: 120px;
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: 0 auto;
+}
+.UserList__item{
+  width: 30%;
+  border: 1px solid black;
+}
+.UserList__item-email{
+
+}
+.UserList__item-name{
+
+}
+.Profile{
+  padding-top: 120px;
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: 0 auto;
+  border: 1px solid red;
+}
+.Profile__sidebar{
+  width: 30%;
+  padding: 20px;
+  background-color: aquamarine;
+}
+.Profile__container{
+  padding: 20px;
+  width: 70%;
+  border: 1px solid blue;
+}
+
