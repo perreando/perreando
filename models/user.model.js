@@ -4,7 +4,7 @@ const EMAIL_PATTERN = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\"
 const SALT_WORK_FACTOR = 10;
 const FIRST_ADMIN_EMAIL = process.env.FIRST_ADMIN_EMAIL || 'admin@example.org';
 const BREED_DOG = ['Mestizo', 'Pastor Alemán', 'San Bernardo', 'Labrador Retriever', 'Golden Retriever', 'Braco de Weimar', 'Border Collie', 'Boxer', 'Schnauzer', 'Bichón Maltés', 'Jack Russell Terrier', 'Beagle', 'Shar Pei', 'Bull Terrier', 'Yorkshire Terrier', 'Dálmata', 'Bretón', 'Bulldog Francés', 'Carlino', 'Otras razas']
-
+const GENRE_DOG = ['Macho', 'Hembra']
 const userSchema = new mongoose.Schema({
   email: {
     type: String,
@@ -31,7 +31,7 @@ const userSchema = new mongoose.Schema({
   },
   genre: {
     type: String,
-    enum: ['Macho', 'Hembra']
+    enum: GENRE_DOG
   },
   weight: {
     type: String,
