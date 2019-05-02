@@ -38,56 +38,38 @@
   <div class="Profile__map"></div>
   <div class="Profile__map-button">Añade tus lugares de paseo</div>
 </div>
-<input type="text" class="input" name="name" id="name" value="{{ user.name }}">
-
-    <li>{{ users.genre.[1] }} pepe</li>
+<div class="Profile__container">
+  <input type="text" class="input" name="name" id="name" value="{{ user.name }}">
   <select>
     <option value="">Sexo</option>
-    {{#each user.genre}}
-      <option value="genre">{{ genre }}</option>
+    {{#each genres as |genre|}}
+      <option value="{{ genre }}">{{ genre }}</option>
     {{/each}}
   </select>
-  <div class="input-radio">
-    <input type="radio" id="weight-1" name="weight" checked>
-    <label for="weight-1">0kg - 3kg</label>
-  </div>
-  <div class="input-radio">
-    <input type="radio" id="weight-2" name="weight" >
-    <label for="weight-2">3kg - 8kg</label>
-  </div>
-  <div class="input-radio">
-    <input type="radio" id="weight-3" name="weight" >
-    <label for="weight-3">8kg - 15kg</label>
-  </div>
-  <div class="input-radio">
-    <input type="radio" id="weight-4" name="weight" >
-    <label for="weight-4">Más de 15kg</label>
-  </div>
+  <select>
+    <option value="">Peso</option>
+    {{#each weights as |weight|}}
+      <option value="{{ weight }}">{{ weight }}</option>
+    {{/each}}
+  </select>
   <select>
     <option value="">Raza</option>
-    <option value="breed">Mestizo</option>
-    <option value="breed">Pastor Alemán</option>
-    <option value="breed">San Bernardo</option>
-    <option value="breed">Labrador Retriever</option>
-    <option value="breed">Golden Retriever</option>
-    <option value="breed">Braco de Weimar</option>
-    <option value="breed">Border Collie</option>
-    <option value="breed">Boxer</option>
-    <option value="breed">Schnauzer</option>
-    <option value="breed">Bichón Maltés</option>
-    <option value="breed">Jack Russell Terrier</option>
+    {{#each breeds as |breed|}}
+      <option value="{{ breed }}">{{ breed }}</option>
+    {{/each}}
   </select>
   <input type="text" placeholder="Edad" value="{{user.age}}" name="age">
-  <div class="input-checkbox">
-    <input type="checkbox" id="1" class="profile-checkbox" checked>
-    <label for="1"></label>
-    <span>Ir a pasear</span>
-  </div>
-  <div class="input-checkbox">
-    <input type="checkbox" id="2" class="profile-checkbox">
-    <label for="2"></label>
-    <span>Ir a pasear</span>
-  </div>
+  {{#each hobbies as |hobbie|}}
+    <div class="input-checkbox">
+      <input type="checkbox" id="hobbie-{{ hobbie }}" class="profile-checkbox" checked="checked">
+      <label for="hobbie-{{ hobbie }}"></label>
+      <span>{{ hobbie }}</span>
+    </div>
+  {{/each}}
+
+
+
+
   <div class="form-group">
     <div class="custom-file">
       <input type="file" class="custom-file-input" name="avatar" id="avatar">
@@ -97,3 +79,4 @@
   <div class="form-actions">
     <button type="submit" class="btn btn-primary btn-block">Edit profile</button>
   </div>
+</div>

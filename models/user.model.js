@@ -3,8 +3,13 @@ const bcrypt = require('bcrypt');
 const EMAIL_PATTERN = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 const SALT_WORK_FACTOR = 10;
 const FIRST_ADMIN_EMAIL = process.env.FIRST_ADMIN_EMAIL || 'admin@example.org';
-const BREED_DOG = ['Mestizo', 'Pastor Alemán', 'San Bernardo', 'Labrador Retriever', 'Golden Retriever', 'Braco de Weimar', 'Border Collie', 'Boxer', 'Schnauzer', 'Bichón Maltés', 'Jack Russell Terrier', 'Beagle', 'Shar Pei', 'Bull Terrier', 'Yorkshire Terrier', 'Dálmata', 'Bretón', 'Bulldog Francés', 'Carlino', 'Otras razas']
-const GENRE_DOG = ['Macho', 'Hembra']
+
+const constants = require('../constants')
+const GENRE_DOG = constants.GENRE_DOG
+const BREED_DOG = constants.BREED_DOG
+const WEIGHT_DOG = constants.WEIGHT_DOG
+const HOBBIES_DOG = constants.HOBBIES_DOG
+
 const userSchema = new mongoose.Schema({
   email: {
     type: String,
@@ -35,7 +40,7 @@ const userSchema = new mongoose.Schema({
   },
   weight: {
     type: String,
-    enum: ['0kg - 3kg', '3kg - 8kg', '8kg - 15kg' , 'Más de 15kg']
+    enum: WEIGHT_DOG
   },
   breed: {
     type: String,
@@ -55,7 +60,7 @@ const userSchema = new mongoose.Schema({
   //}
   hobbies: {
     type: String,
-    enum: ['Ir a pasear', 'Jugar a pelota', 'Dar besitos', 'Slalon', 'Comer premios', 'Agility', 'Rastrear']
+    enum: HOBBIES_DOG
   },
   avatarURL: String,
   gallery: {

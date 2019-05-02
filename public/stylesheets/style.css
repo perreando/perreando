@@ -189,11 +189,14 @@ input[type=checkbox] {
 }
 .Profile{
   padding-top: 120px;
-  display: flex;
-  justify-content: space-between;
   width: 90%;
   margin: 0 auto;
   border: 1px solid red;
+}
+.Profile form {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 .Profile__sidebar{
   width: 30%;

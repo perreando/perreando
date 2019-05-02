@@ -2,6 +2,12 @@ const mongoose = require('mongoose');
 const User = require('../models/user.model');
 const passport = require('passport');
 
+const constants = require('../constants');
+const GENRE_DOG = constants.GENRE_DOG
+const BREED_DOG = constants.BREED_DOG
+const WEIGHT_DOG = constants.WEIGHT_DOG
+const HOBBIES_DOG = constants.HOBBIES_DOG
+
 
 
 module.exports.register = (req, res, next) => {
@@ -79,7 +85,13 @@ module.exports.loginWithIDPCallback = (req, res, next) => {
 }
 
 module.exports.profile = (req, res, next) => {
-  res.render('auth/profile')
+  res.render('auth/profile', {
+    genres: GENRE_DOG,
+    breeds: BREED_DOG,
+    weights: WEIGHT_DOG,
+    hobbies: HOBBIES_DOG,
+    user
+  })
 }
 
 module.exports.doProfile = (req, res, next) => {
