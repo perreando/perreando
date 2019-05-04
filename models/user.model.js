@@ -63,7 +63,10 @@ const userSchema = new mongoose.Schema({
     enum: HOBBIES_DOG,
     default: []
   },
-  avatarURL: String,
+  avatarURL:{
+    type: String,
+    default: '../images/dog.png'
+  },
   gallery: {
     type: [String]
   },

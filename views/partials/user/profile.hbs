@@ -33,7 +33,9 @@
 
 <div class="Profile__sidebar">
   {{#if session.avatarURL}}
+  <div class="Avatar">
     <img src="{{ session.avatarURL }}" class="Profile__avatar" alt="{{ user.name }}">
+  </div>
   {{/if}}
   <div class="Profile__map"></div>
   <div class="Profile__map-button">Añade tus lugares de paseo</div>
@@ -41,19 +43,31 @@
 <div class="Profile__container">
   <input type="text" class="input" name="name" id="name" value="{{ user.name }}">
   <select name="genre">
+    {{#if user.genre }}
+    <option selected disabled>{{user.genre}}</option>
+    {{else}}
     <option selected disabled>Sexo</option>
+    {{/if}}
     {{#each genres as |genre|}}
       <option value="{{ genre }}">{{ genre }}</option>
     {{/each}}
   </select>
   <select name="weight">
+    {{#if user.weight }}
+    <option selected disabled>{{user.weight}}</option>
+    {{else}}
     <option selected disabled>Peso</option>
+    {{/if}}
     {{#each weights as |weight|}}
       <option value="{{ weight }}">{{ weight }}</option>
     {{/each}}
   </select>
   <select name="breed">
+    {{#if user.breed }}
+    <option selected disabled>{{user.breed}}</option>
+    {{else}}
     <option selected disabled>Raza</option>
+    {{/if}}
     {{#each breeds as |breed|}}
       <option value="{{ breed }}">{{ breed }}</option>
     {{/each}}
@@ -61,7 +75,8 @@
   <input type="text" placeholder="Edad" value="{{user.age}}" name="age">
   {{#each hobbies as |hobbie|}}
     <div class="input-checkbox">
-      <input type="checkbox" id="hobbie-{{ hobbie }}" class="profile-checkbox" checked="checked">
+      <input type="checkbox"  name="hobbies[]" value="{{hobbie}}" id="hobbie-{{ hobbie }}" 
+      class="profile-checkbox" {{#hasHobbie ../user hobbie}} checked="checked" {{/hasHobbie}}>
       <label for="hobbie-{{ hobbie }}"></label>
       <span>{{ hobbie }}</span>
     </div>
