@@ -40,20 +40,20 @@
 </div>
 <div class="Profile__container">
   <input type="text" class="input" name="name" id="name" value="{{ user.name }}">
-  <select>
-    <option value="">Sexo</option>
+  <select name="genre">
+    <option selected disabled>Sexo</option>
     {{#each genres as |genre|}}
       <option value="{{ genre }}">{{ genre }}</option>
     {{/each}}
   </select>
-  <select>
-    <option value="">Peso</option>
+  <select name="weight">
+    <option selected disabled>Peso</option>
     {{#each weights as |weight|}}
       <option value="{{ weight }}">{{ weight }}</option>
     {{/each}}
   </select>
-  <select>
-    <option value="">Raza</option>
+  <select name="breed">
+    <option selected disabled>Raza</option>
     {{#each breeds as |breed|}}
       <option value="{{ breed }}">{{ breed }}</option>
     {{/each}}

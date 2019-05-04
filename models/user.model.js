@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
+const constants = require('../constants')
+
 const EMAIL_PATTERN = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 const SALT_WORK_FACTOR = 10;
 const FIRST_ADMIN_EMAIL = process.env.FIRST_ADMIN_EMAIL || 'admin@example.org';
 
-const constants = require('../constants')
-const GENRE_DOG = constants.GENRE_DOG
 const BREED_DOG = constants.BREED_DOG
 const WEIGHT_DOG = constants.WEIGHT_DOG
 const HOBBIES_DOG = constants.HOBBIES_DOG
@@ -26,8 +26,7 @@ const userSchema = new mongoose.Schema({
   },
   social: {
     googleId: {
-      type: String,
-      unique: true
+      type: String
     }
   },
   name: {
@@ -36,7 +35,7 @@ const userSchema = new mongoose.Schema({
   },
   genre: {
     type: String,
-    enum: GENRE_DOG
+    enum: constants.GENRE_DOG
   },
   weight: {
     type: String,
@@ -52,15 +51,17 @@ const userSchema = new mongoose.Schema({
   },
   city: {
     type: {type: String},
-    coordinates: [Number]
+    coordinates: [Number],
+    default: []
   },
   //walks: {
     //type: {type: String},
     //coordinates: [{Number}]
   //}
   hobbies: {
-    type: String,
-    enum: HOBBIES_DOG
+    type: [String],
+    enum: HOBBIES_DOG,
+    default: []
   },
   avatarURL: String,
   gallery: {

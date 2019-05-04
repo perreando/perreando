@@ -1,3 +1,4 @@
+const createError = require('http-errors');
 const mongoose = require('mongoose');
 const User = require('../models/user.model');
 const passport = require('passport');
@@ -85,29 +86,50 @@ module.exports.loginWithIDPCallback = (req, res, next) => {
 }
 
 module.exports.profile = (req, res, next) => {
+
   res.render('auth/profile', {
     genres: GENRE_DOG,
     breeds: BREED_DOG,
     weights: WEIGHT_DOG,
-    hobbies: HOBBIES_DOG,
-    user
+    hobbies: HOBBIES_DOG
   })
+
+
+  // const id = req.params.id;
+
+  // User.findById(id)
+  //   .then(user => {
+  //     if(user) {
+  //       res.render('auth/profile', {
+  //         genres: GENRE_DOG,
+  //         breeds: BREED_DOG,
+  //         weights: WEIGHT_DOG,
+  //         hobbies: HOBBIES_DOG,
+  //         user
+  //       })
+  //     } else {
+  //       next(createError(404, 'Usuario no encontrado'))
+  //     }
+  //   })
+  //   .catch(error => next(error));
 }
 
 module.exports.doProfile = (req, res, next) => {
-  if (!req.body.password) {
+
+  if (!req.body) {
     delete req.body.password;
   }
 
   if (req.file) {
     req.body.avatarURL = req.file.secure_url;
   }
-
+//Si tenemos el user
   const user = req.user;
   Object.assign(user, req.body);
   user.save()
     .then(user => res.redirect('/profile'))
     .catch(error => {
+      console.log(error.errors);
       if (error instanceof mongoose.Error.ValidationError) {
         res.render('auth/profile', {
           user: req.body,
