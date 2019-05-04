@@ -86,32 +86,12 @@ module.exports.loginWithIDPCallback = (req, res, next) => {
 }
 
 module.exports.profile = (req, res, next) => {
-
   res.render('auth/profile', {
     genres: GENRE_DOG,
     breeds: BREED_DOG,
     weights: WEIGHT_DOG,
     hobbies: HOBBIES_DOG
   })
-
-
-  // const id = req.params.id;
-
-  // User.findById(id)
-  //   .then(user => {
-  //     if(user) {
-  //       res.render('auth/profile', {
-  //         genres: GENRE_DOG,
-  //         breeds: BREED_DOG,
-  //         weights: WEIGHT_DOG,
-  //         hobbies: HOBBIES_DOG,
-  //         user
-  //       })
-  //     } else {
-  //       next(createError(404, 'Usuario no encontrado'))
-  //     }
-  //   })
-  //   .catch(error => next(error));
 }
 
 module.exports.doProfile = (req, res, next) => {
@@ -123,6 +103,10 @@ module.exports.doProfile = (req, res, next) => {
   if (req.file) {
     req.body.avatarURL = req.file.secure_url;
   }
+  // location: {
+  //   type: 'Point',
+  //   coordinates: [req.body.longitude, req.body.latitude]
+  // }
 //Si tenemos el user
   const user = req.user;
   Object.assign(user, req.body);

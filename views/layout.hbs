@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
       integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="/js/myMap.js"></script>
   </head>
   <body>
     {{>navbar }}
@@ -15,4 +16,6 @@
       {{{ body }}}
     </div>
   </body>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCa5BeYWgKQSS2WXfcy26rZm6mKiDnTSTQ&libraries=places&callback=initAutocomplete"
+  async defer></script>
 </html>

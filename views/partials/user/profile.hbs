@@ -75,12 +75,14 @@
   <input type="text" placeholder="Edad" value="{{user.age}}" name="age">
   {{#each hobbies as |hobbie|}}
     <div class="input-checkbox">
-      <input type="checkbox"  name="hobbies[]" value="{{hobbie}}" id="hobbie-{{ hobbie }}" 
+      <input type="checkbox" name="hobbies[]" value="{{hobbie}}" id="hobbie-{{ hobbie }}" 
       class="profile-checkbox" {{#hasHobbie ../user hobbie}} checked="checked" {{/hasHobbie}}>
       <label for="hobbie-{{ hobbie }}"></label>
       <span>{{ hobbie }}</span>
     </div>
   {{/each}}
+  <input id="pac-input" class="controls" type="text" placeholder="Search Box" name="user.location.coordinates[]" value="{{ user.location.coordinates }}">
+  <div id="map"></div>
 
 
 
