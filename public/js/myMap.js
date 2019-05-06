@@ -68,7 +68,6 @@ function initAutocomplete() {
           // Only geocodes have viewport.
           bounds.union(place.geometry.viewport);
         } else {
-          console.log(place)
           bounds.extend(place.geometry.location);
         }
       });

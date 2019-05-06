@@ -233,6 +233,28 @@ input[type=checkbox] {
   width: 100%;
   height: auto;
 }
+.map{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+.map-container{
+  width: 85%;
+  height: 400px;
+  background-color: white;
+}
+
+
+
+
+
+
 
 
 
@@ -293,9 +315,6 @@ input[type=checkbox] {
 
 #pac-input {
   background-color: #fff;
-  font-family: Roboto;
-  font-size: 15px;
-  font-weight: 300;
   margin-left: 12px;
   padding: 0 11px 0 13px;
   text-overflow: ellipsis;

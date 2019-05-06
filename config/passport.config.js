@@ -41,34 +41,34 @@ passport.use('local-auth', new LocalStrategy({
 // }, authenticateOAuthUser));
 
 
-// function authenticateOAuthUser(accessToken, refreshToken, profile, next) {
+ function authenticateOAuthUser(accessToken, refreshToken, profile, next) {
 //   const provider = `${profile.provider}Id`;
 //   const socialId = profile.id;
 //   const name = profile.displayName;
 //   const email = profile.emails ? profile.emails[0].value : undefined;
-//   const avatarURL = profile.picture || profile.photos && profile.photos[0].value;
-//   User.findOne({
-//     $or: [
-//       { email: email },
-//       { [`social.${provider}`]: socialId }
-//     ]
-//   })
-//     .then(user => {
-//       if (user) {
-//         next(null, user);
-//       } else if (!user) {
-//         user = new User({
-//           name: name,
-//           email: email,
-//           password: Math.random().toString(35), // Be carefully only for dev purposes, Math.random seed is predictable!!
-//           social: {
-//             [provider]: socialId
-//           },
-//           avatarURL: avatarURL
-//         })
-//         return user.save()
-//           .then(user => next(null, user))
-//       }
-//     })
-//     .catch(error => next(error))
-// }
+   const avatarURL = profile.picture || profile.photos && profile.photos[0].value;
+  User.findOne({
+    $or: [
+      { email: email },
+    //  { [`social.${provider}`]: socialId }
+    ]
+  })
+    .then(user => {
+      if (user) {
+        next(null, user);
+      } else if (!user) {
+        user = new User({
+          name: name,
+          email: email,
+          password: Math.random().toString(35), // Be carefully only for dev purposes, Math.random seed is predictable!!
+          // social: {
+          //   [provider]: socialId
+          // },
+          avatarURL: avatarURL
+        })
+        return user.save()
+          .then(user => next(null, user))
+      }
+    })
+    .catch(error => next(error))
+}
