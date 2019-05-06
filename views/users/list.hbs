@@ -16,7 +16,9 @@
 <div class="UserList">
   {{#each users as |user|}}
   <div class="UserList__item">
-    <div class="UserList__item-email">{{ user.email }}</div>
+    <div class="UserList__item-avatar">
+      <img src="{{ user.avatarURL }}" class="Profile__avatar" alt="{{ user.name }}">
+    </div>
     <div class="UserList__item-name">{{ user.name }}</div>
   </div>
   {{/each}}

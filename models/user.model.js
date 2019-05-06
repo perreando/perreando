@@ -50,7 +50,10 @@ const userSchema = new mongoose.Schema({
     default: Date.now
   },
   location: {
-    type: {type: String},
+    type: {
+      type: String,
+      default: 'Point'
+    },
     coordinates: [Number]
   },
   //walks: {

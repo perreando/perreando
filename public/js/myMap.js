@@ -25,10 +25,15 @@ function initAutocomplete() {
     // more details for that place.
     searchBox.addListener('places_changed', function() {
       var places = searchBox.getPlaces();
+      const place = places[0];
   
       if (places.length == 0) {
         return;
       }
+
+      document.getElementById('city2').value = place.name;
+      document.getElementById('cityLat').value = place.geometry.location.lat();
+      document.getElementById('cityLng').value = place.geometry.location.lng();
   
       // Clear out the old markers.
       markers.forEach(function(marker) {
@@ -63,6 +68,7 @@ function initAutocomplete() {
           // Only geocodes have viewport.
           bounds.union(place.geometry.viewport);
         } else {
+          console.log(place)
           bounds.extend(place.geometry.location);
         }
       });

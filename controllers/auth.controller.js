@@ -95,7 +95,7 @@ module.exports.profile = (req, res, next) => {
 }
 
 module.exports.doProfile = (req, res, next) => {
-
+  console.log(req.body);
   if (!req.body) {
     delete req.body.password;
   }
@@ -103,13 +103,10 @@ module.exports.doProfile = (req, res, next) => {
   if (req.file) {
     req.body.avatarURL = req.file.secure_url;
   }
-  // location: {
-  //   type: 'Point',
-  //   coordinates: [req.body.longitude, req.body.latitude]
-  // }
 //Si tenemos el user
   const user = req.user;
-  Object.assign(user, req.body);
+  const returnedUser = Object.assign(user, req.body)
+  console.log(returnedUser, req.body)
   user.save()
     .then(user => res.redirect('/profile'))
     .catch(error => {

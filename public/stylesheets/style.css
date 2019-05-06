@@ -17,6 +17,9 @@ ul,li {
 input {
   border: 1px solid blue;
 }
+img{
+  max-width: 100%;
+}
 
 
 
@@ -173,19 +176,32 @@ input[type=checkbox] {
 .UserList{
   padding-top: 120px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  flex-wrap: wrap;
   width: 90%;
   margin: 0 auto;
 }
 .UserList__item{
-  width: 30%;
-  border: 1px solid black;
+  width: 22%;
+  border: 1px solid #f0f0f0;
+  margin: 10px;
+  padding: 20px;
+  -webkit-box-shadow: 0 0 14px 0 rgba(0,0,0,0.04);
+  -moz-box-shadow: 0 0 14px 0 rgba(0,0,0,0.04);
+  box-shadow: 0 0 14px 0 rgba(0,0,0,0.04);
+  background-color: #ffffff;
+}
+.UserList__item-avatar {
+  margin-bottom: 20px;
 }
 .UserList__item-email{
 
 }
 .UserList__item-name{
-
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 15px;
+  color: #3386e2;
 }
 .Profile{
   padding-top: 120px;
