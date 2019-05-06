@@ -122,6 +122,13 @@ module.exports.doProfile = (req, res, next) => {
     });
 }
 
+module.exports.wall = (req, res, next) => {
+  console.log(req.user.id)
+  User.findById(req.user.id)
+  .then(user=> res.render('auth/wall', {user}))
+  .catch(err=> res.render('auth/wall', {err}))
+}
+
 module.exports.logout = (req, res, next) => {
   req.logout();
   res.redirect('/login');

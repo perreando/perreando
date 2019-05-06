@@ -50,7 +50,7 @@ passport.use('local-auth', new LocalStrategy({
   User.findOne({
     $or: [
       { email: email },
-    //  { [`social.${provider}`]: socialId }
+      { [`social.${provider}`]: socialId }
     ]
   })
     .then(user => {
@@ -61,9 +61,9 @@ passport.use('local-auth', new LocalStrategy({
           name: name,
           email: email,
           password: Math.random().toString(35), // Be carefully only for dev purposes, Math.random seed is predictable!!
-          // social: {
-          //   [provider]: socialId
-          // },
+          social: {
+            [provider]: socialId
+          },
           avatarURL: avatarURL
         })
         return user.save()

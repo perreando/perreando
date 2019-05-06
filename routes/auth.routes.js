@@ -15,4 +15,6 @@ router.post('/profile', secure.isAuthenticated, storage.single('avatar'), auth.d
 router.get('/authenticate/google', passport.authenticate('google-auth', { scope: ['openid', 'profile', 'email'] }))
 router.get('/authenticate/:idp/cb', auth.loginWithIDPCallback)
 
+router.get('/wall', secure.isAuthenticated, auth.wall);
+
 module.exports = router;

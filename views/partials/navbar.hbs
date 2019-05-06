@@ -1,13 +1,13 @@
 <nav class="Menu">
   <div class="Menu__container">
-    <a href="/" class="Menu__logo">Perreando Logo</a>
+    <!--<a href="/" class="Menu__logo">Perreando Logo</a>-->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    {{#if session.email}}
+    {{#if session.email }}
     <a href="/profile">Edit Profile</a>
-    <a href="">My Profile</a>
+    <a href="/wall">My Profile</a>
     <a href="/users">Pet Friends</a>
     <a href="/logout">Logout</a>
     {{/if}}

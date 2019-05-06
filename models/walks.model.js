@@ -1,14 +1,14 @@
 const mongoose = require('mongoose');
 
 const walkSchema = new mongoose.Schema({
-  walksLocation: {
+  owner: {type: userSchema.Types.ObjectId, ref: 'User' },
+  location: {
     type: {
       type: [String],
       default: 'Point'
     },
     coordinates: [Number]
-  },
-  favorites: [{ type: userSchema.Types.ObjectId, ref: 'User' }]
+  }
 }, { timestamps: true })
 
 walkSchema.index({location: '2dsphere'});
