@@ -1,9 +1,25 @@
-window.onload = function() {}
+function initMap() {
+  if (typeof google === 'undefined') {
+    setTimeout(initMap, 300)
+    return;
+  }
+
+  var map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: -33.8688, lng: 151.2195},
+      zoom: 10,
+      mapTypeId: 'roadmap'
+    });  
+}
 
 function initAutocomplete() {
 
+  if (typeof google === 'undefined') {
+    setTimeout(initAutocomplete, 300)
+    return;
+  }
+
   var mapContainer = document.getElementById('map');
-  if (mapContainer) {
+  if (true) {
     // var map = new google.maps.Map(document.getElementById('map'), {
     //   center: {lat: -33.8688, lng: 151.2195},
     //   zoom: 10,

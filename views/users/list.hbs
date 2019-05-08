@@ -1,6 +1,6 @@
 <div class="UserList">
   {{#each users as |user|}}
-  <a href="#" class="UserList__item">
+  <a href="/users/{{ user.id }}" class="UserList__item">
     <div class="UserList__item-avatar">
       <img src="{{ user.avatarURL }}" class="Profile__avatar" alt="{{ user.name }}">
     </div>

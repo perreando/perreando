@@ -53,7 +53,7 @@
   <input type="hidden" id="cityLat" name="location[coordinates][1]" />
   <input type="hidden" id="cityLng" name="location[coordinates][0]" />  
 
-  <div id="map"></div>
+  <!--<div id="map"></div>-->
 
 
 
@@ -70,11 +70,16 @@
     </div> --}}
   
   
-  {{!-- <div class="map">
+  <div class="map">
     <div class="map-container" id="map">Esto es un mapa</div>
-  </div> --}}
+  </div>
   
   <div class="form-actions">
     <button type="submit" class="btn btn-primary btn-block">Edit profile</button>
   </div>
 </div>
+
+<script>
+  initAutocomplete()
+  initMap()
+</script>

@@ -4,6 +4,7 @@ const secure = require('../middlewares/secure.mid');
 const users = require('../controllers/users.controller');
 
 router.get('/', secure.isAuthenticated, users.list);
+router.get('/:id', users.details);
 //router.post('/:id/delete', secure.isAuthenticated, users.delete);
 
 module.exports = router;
