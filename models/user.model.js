@@ -64,10 +64,6 @@ const userSchema = new mongoose.Schema({
     type: String,
     default: 'My city'
   },
-  //walks: {
-    //type: {type: String},
-    //coordinates: [{Number}]
-  //}
   hobbies: {
     type: [String],
     enum: HOBBIES_DOG,

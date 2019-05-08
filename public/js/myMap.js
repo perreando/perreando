@@ -5,14 +5,28 @@ function initMap() {
   }
 
   var map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: 40.416775, lng: -3.703790},
-      zoom: 12,
-      mapTypeId: 'roadmap'
-    });  
+    center: {lat: 40.416775, lng: -3.703790},
+    zoom: 12,
+    mapTypeId: 'roadmap'
+  }); 
+
+  const myMap = new MyMap(map) 
+  
+  setFormMapListeners(myMap)
+}
+
+function setFormMapListeners(myMap) {
+  myMap.onClick((event) => {
+    const { lat, lng } = event.latLng.toJSON()
+    console.log(lat, lng)
+
+    myMap.clearMarkers();
+    myMap.addMarker(lat, lng);
+    
+  })
 }
 
 function initAutocomplete() {
-
   if (typeof google === 'undefined') {
     setTimeout(initAutocomplete, 300)
     return;
@@ -20,12 +34,6 @@ function initAutocomplete() {
 
   var mapContainer = document.getElementById('map');
   if (true) {
-    // var map = new google.maps.Map(document.getElementById('map'), {
-    //   center: {lat: -33.8688, lng: 151.2195},
-    //   zoom: 10,
-    //   mapTypeId: 'roadmap'
-    // });
-  
     // Create the search box and link it to the UI element.
     var input = document.getElementById('pac-input');
     var searchBox = new google.maps.places.SearchBox(input);
