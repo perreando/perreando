@@ -1,89 +1,114 @@
-<div class="Profile__sidebar">
-  {{#if session.avatarURL}}
-  <div class="Avatar">
-    <img src="{{ session.avatarURL }}" class="Profile__avatar" alt="{{ user.name }}">
-  </div>
-  {{/if}}
-  <div class="Profile__map"></div>
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-    Añade tus paseos
-  </button>
+<div class="MainTitle">
+  <h1>
+    Nuestros peluditos
+  </h1>
 </div>
-<div class="Profile__container">
-  <input type="text" class="input" name="name" id="name" value="{{ user.name }}">
-  <select name="genre">
-    {{#if user.genre }}
-    <option selected disabled>{{user.genre}}</option>
-    {{else}}
-    <option selected disabled>Sexo</option>
-    {{/if}}
-    {{#each genres as |genre|}}
-      <option value="{{ genre }}">{{ genre }}</option>
-    {{/each}}
-  </select>
-  <select name="weight">
-    {{#if user.weight }}
-    <option selected disabled>{{user.weight}}</option>
-    {{else}}
-    <option selected disabled>Peso</option>
-    {{/if}}
-    {{#each weights as |weight|}}
-      <option value="{{ weight }}">{{ weight }}</option>
-    {{/each}}
-  </select>
-  <select name="breed">
-    {{#if user.breed }}
-    <option selected disabled>{{user.breed}}</option>
-    {{else}}
-    <option selected disabled>Raza</option>
-    {{/if}}
-    {{#each breeds as |breed|}}
-      <option value="{{ breed }}">{{ breed }}</option>
-    {{/each}}
-  </select>
-  <input type="text" placeholder="Edad" value="{{user.age}}" name="age">
-  {{#each hobbies as |hobbie|}}
-    <div class="input-checkbox">
-      <input type="checkbox" name="hobbies[]" value="{{hobbie}}" id="hobbie-{{ hobbie }}" 
-      class="profile-checkbox" {{#hasHobbie ../user hobbie}} checked="checked" {{/hasHobbie}}>
-      <label for="hobbie-{{ hobbie }}"></label>
-      <span>{{ hobbie }}</span>
+<div class="Profile__content">
+  <div class="Profile__sidebar">
+    {{#if session.avatarURL}}
+    <div class="Avatar">
+      <img src="{{ session.avatarURL }}" class="Profile__avatar" alt="{{ user.name }}">
     </div>
-  {{/each}}
-  <input id="pac-input" class="controls" type="text" placeholder="Search Box" name="city" value="{{ user.city }}">
-  <input type="hidden" id="city2" name="city2" />
-  <input type="hidden" id="cityLat" name="location[coordinates][1]" />
-  <input type="hidden" id="cityLng" name="location[coordinates][0]" />  
-
-  <!--<div id="map"></div>-->
-
-
-
-
-  <div class="form-group">
-    <div class="custom-file">
-      <input type="file" class="custom-file-input" name="avatar" id="avatar">
-      <label class="custom-file-label" for="avatar">Elige tu avatar</label>
-    </div>
-  </div>
-
-  
-  <!--<div class="popup-map">
-    <div class="map-container" id="map"></div>
-  </div>-->
-
-  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="map-container" id="map"></div>
+    {{/if}}
+    <div class="InputItem InputAvatar">
+      <div class="custom-file">
+        <input type="file" class="custom-file-input" name="avatar" id="avatar">
+        <label class="custom-file-label" for="avatar">Elige tu avatar</label>
       </div>
     </div>
+    <button type="button" class="ButtonSubmit btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+      Añade tus paseos
+    </button>
   </div>
-  
-  <div class="form-actions">
-    <button type="submit" class="btn btn-primary btn-block">Edit profile</button>
+  <div class="Profile__container">
+    <div class="TwoCols">
+      <div class="InputItem">
+        <label>Nombre</label>
+        <input type="text" class="input" name="name" id="name" value="{{ user.name }}"> 
+      </div>
+      <div class="InputItem">
+        <label>Fecha de nacimiento</label>
+        <input type="text" placeholder="Edad" value="{{user.age}}" name="age">
+      </div>
+    </div>
+    <div class="ThreeCols">
+      <div class="InputItem">
+        <label>Género</label>
+          <select name="genre">
+          {{#if user.genre }}
+          <option selected disabled>{{user.genre}}</option>
+          {{else}}
+          <option selected disabled>Sexo</option>
+          {{/if}}
+          {{#each genres as |genre|}}
+            <option value="{{ genre }}">{{ genre }}</option>
+          {{/each}}
+        </select>
+      </div>
+      <div class="InputItem">
+        <label>Sexo</label>
+        <select name="weight">
+          {{#if user.weight }}
+          <option selected disabled>{{user.weight}}</option>
+          {{else}}
+          <option selected disabled>Peso</option>
+          {{/if}}
+          {{#each weights as |weight|}}
+            <option value="{{ weight }}">{{ weight }}</option>
+          {{/each}}
+        </select>
+      </div>
+      <div class="InputItem">
+        <label>Raza</label>
+          <select name="breed">
+            {{#if user.breed }}
+            <option selected disabled>{{user.breed}}</option>
+            {{else}}
+            <option selected disabled>Raza</option>
+            {{/if}}
+            {{#each breeds as |breed|}}
+              <option value="{{ breed }}">{{ breed }}</option>
+            {{/each}}
+          </select>
+      </div> 
+    </div>
+    <div class="FullWidth">
+      <div class="InputItem">
+        <label> Ciudad</label>
+        <input id="pac-input" class="controls" type="text" placeholder="Search Box" name="city" value="{{ user.city }}">
+        <input type="hidden" id="city2" name="city2" />
+        <input type="hidden" id="cityLat" name="location[coordinates][1]" />
+        <input type="hidden" id="cityLng" name="location[coordinates][0]" /> 
+      </div>
+    </div>
+    <div class="Hobbies">
+      {{#each hobbies as |hobbie|}}
+        <div class="HobbiesItem input-checkbox">
+          <input type="checkbox" name="hobbies[]" value="{{hobbie}}" id="hobbie-{{ hobbie }}" 
+          class="profile-checkbox" {{#hasHobbie ../user hobbie}} checked="checked" {{/hasHobbie}}>
+          <label for="hobbie-{{ hobbie }}"></label>
+          <span>{{ hobbie }}</span>
+        </div>
+      {{/each}}
+    </div>
+    
+     
+    
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="map-container" id="map"></div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="form-actions">
+      <button type="submit" class="ButtonSubmit btn btn-primary btn-block">Guardar perfil</button>
+    </div>
   </div>
 </div>
+
+
 
 <script>
   initAutocomplete()

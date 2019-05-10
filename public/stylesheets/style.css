@@ -4,6 +4,7 @@
 }
 body{
   color: #000000;
+  font-family: 'Open Sans', sans-serif;
 }
 div {
   box-sizing: border-box;
@@ -14,14 +15,43 @@ a {
 ul,li {
   list-style-type: none;
 }
-input {
-  border: 1px solid blue;
-}
+
 img{
   max-width: 100%;
 }
+button, input {
+  outline: none;
+}
 
+.MainTitle h1{
+  display: block;
+  font-size: 30px;
+  color: #43565a;
+  text-align: left;
+  margin: 0 auto 60px auto;
+  position: relative;
+}
+.MainTitle h1::after{
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -20px;
+  width: 100%;
+  height: 1px;
+  background-color: #99c3cc;
+}
 
+.ButtonSubmit{
+  background-color: #99c3cc;
+  color: #43565a;
+  border: 1px solid #43565a;
+  width:  100%;
+}
+.ButtonSubmit:hover {
+  background-color: #43565a;
+  color: #99c3cc;
+  border: #43565a;
+}
 
 [type="radio"]:checked,
 [type="radio"]:not(:checked) {
@@ -92,7 +122,7 @@ input[type=checkbox] {
 	width: 20px;
 	height: 20px;
 	cursor: pointer;
-  background: rgba(61,170,230,1);
+  background: #99c3cc;
   margin-bottom: 0;
   margin-right: 10px;
 }
@@ -102,7 +132,7 @@ input[type=checkbox] {
 	content: "\2713";
 	text-align: center;
 	font-size: 13px;
-	color: white;
+	color: #43565a;
 }
 
 
@@ -114,18 +144,48 @@ input[type=checkbox] {
   /*padding-top: 80px;*/
 }
 .Menu{
-  position: fixed;
-  top:0;
-  left: 0;
   width: 100%;
   height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #99c3cc;
+
 }
 .Menu__container {
-  width: 80%;
+  
+
 }
+.Menu__container a {
+  margin: 0 20px;
+  font-family: 'Open Sans', sans-serif;
+  color: #43565a;
+  position: relative;
+  transition: width 1s ease-in-out;
+  text-decoration: none;
+}
+.Menu__container a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 0;
+  height:  1px;
+  background-color: #43565a;
+  transition: width 1s ease-in-out;
+}
+.Menu__container a:hover:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 100%;
+  height:  1px;
+  background-color: #43565a;
+  transition: width 1s ease-in-out;
+}
+
+
 .HomeContainer{
   width: 100vw;
   height: 100vh;
@@ -174,12 +234,31 @@ input[type=checkbox] {
   padding: 25px;
 }
 .UserList{
-  padding-top: 120px;
+  padding: 50px 0 120px 0;
+  width: 90%;
+  margin: 0 auto;
+}
+.UserList h1{
+  display: block;
+  font-size: 30px;
+  color: #43565a;
+  text-align: left;
+  margin: 0 auto 60px auto;
+  position: relative;
+}
+.UserList h1::after{
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -20px;
+  width: 100%;
+  height: 1px;
+  background-color: #99c3cc;
+}
+.UserList__content{
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
-  width: 90%;
-  margin: 0 auto;
 }
 .UserList__item{
   width: 22%;
@@ -193,6 +272,17 @@ input[type=checkbox] {
 }
 .UserList__item-avatar {
   margin-bottom: 20px;
+  height: 160px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.UserList__item-avatar img{
+  height: 100%;
+  width: auto;
+  align-items: center;
+  max-width: initial;
 }
 .UserList__item-email{
 
@@ -201,15 +291,17 @@ input[type=checkbox] {
   font-weight: bold;
   text-transform: uppercase;
   font-size: 15px;
-  color: #3386e2;
+  color: #43565a;
 }
-.Profile{
-  padding-top: 120px;
+.Profile{  
+  padding: 50px 0 120px 0;
   width: 90%;
   margin: 0 auto;
-  border: 1px solid red;
 }
 .Profile form {
+  width: 100%;
+}
+.Profile__content{
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -217,21 +309,33 @@ input[type=checkbox] {
 .Profile__sidebar{
   width: 30%;
   padding: 20px;
-  background-color: aquamarine;
+  background-color:#99c3cc;
+  padding: 30px;
+  border: 1px solid #99c3cc;
 }
 .Profile__container{
   padding: 20px;
   width: 70%;
-  border: 1px solid blue;
+  border: 1px solid #99c3cc;
+}
+.Profile__sidebar .btn{
+  display: block;
+  margin: 0 auto;
 }
 
 .Avatar{
   width: 100%;
-  height: 300px;
+  height: 200px;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 .Avatar img{
-  width: 100%;
-  height: auto;
+  width: auto;
+  height: 100%;
+  max-width: inherit;
 }
 
 .map-container{
@@ -240,11 +344,69 @@ input[type=checkbox] {
   background-color: white;
 }
 
+.TwoCols, .ThreeCols{
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+}
+.TwoCols .InputItem, .ThreeCols .InputItem{
+  width: 48%;
+  display: flex;
+  flex-direction: column;
+}
+.ThreeCols .InputItem{
+  width: 30%;
+}
+.TwoCols .InputItem label, .ThreeCols .InputItem label{
+ font-size: 15px;
+ margin-bottom: 8px;
+ font-weight: bold;
+}
+.TwoCols .InputItem input, .TwoCols .InputItem select, .ThreeCols .InputItem select, .FullWidth .InputItem input{
+  height: 40px;
+  border: 1px solid #99c3cc;
+  padding: 0 15px; 
+  margin-bottom: 20px;
+}
+.InputAvatar{
+  margin-bottom: 20px;
+}
+.InputAvatar label::after{
+  display: none;
+}
 
+.FullWidth{
+  width: 100%;
+}
+.FullWidth .InputItem{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.FullWidth .InputItem label{
+  font-size: 15px;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+.Hobbies{
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.HobbiesItem {
+  width: 30%;
+  margin-bottom: 15px;
+}
 
 .modal.show .modal-dialog {
   width: 90vw;
   max-width: 90vw;
+}
+.Profile__container .ButtonSubmit{
+  border: 0;
+  height: 50px;
 }
 
 
@@ -306,17 +468,6 @@ input[type=checkbox] {
   font-weight: 300;
 }
 
-#pac-input {
-  background-color: #fff;
-  margin-left: 12px;
-  padding: 0 11px 0 13px;
-  text-overflow: ellipsis;
-  width: 400px;
-}
-
-#pac-input:focus {
-  border-color: #4d90fe;
-}
 
 #title {
   color: #fff;

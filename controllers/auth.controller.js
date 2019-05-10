@@ -1,6 +1,7 @@
 const createError = require('http-errors');
 const mongoose = require('mongoose');
 const User = require('../models/user.model');
+//const Walks = require('../models/walks.model');
 const passport = require('passport');
 
 const constants = require('../constants');
@@ -9,7 +10,11 @@ const BREED_DOG = constants.BREED_DOG
 const WEIGHT_DOG = constants.WEIGHT_DOG
 const HOBBIES_DOG = constants.HOBBIES_DOG
 
-
+// module.exports.coordinates = (req, res, next) => {
+//   Walks.find()
+//       .then((walks) => res.json(events.map(w => w.location)))
+//       .catch(next)
+// }
 
 module.exports.register = (req, res, next) => {
   res.render('auth/register');

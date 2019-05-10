@@ -1,4 +1,10 @@
 <div class="UserList">
+  <div class="MainTitle">
+    <h1>
+      Nuestros peluditos
+    </h1>
+  </div>
+  <div class="UserList__content">
   {{#each users as |user|}}
   <a href="/users/{{ user.id }}" class="UserList__item">
     <div class="UserList__item-avatar">
@@ -9,3 +15,4 @@
   </a>
   {{/each}}
 </div>
+  </div>
