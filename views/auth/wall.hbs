@@ -1,25 +1,33 @@
-<div class="Profile">
+<div class="Profile ProfileWall">
   <div class="MainTitle">
     <h1>
       {{ user.name }}
     </h1>
   </div>
-  <div class="Profile__sidebar">
-  <div class="Avatar">
-    <img src="{{ user.avatarURL }}" class="Profile__avatar" alt="{{ user.name }}">
-  </div>
-</div>
-<div class="Profile__container">
-    <div><strong>Nombre: </strong> {{user.name}}</div>
-    <div><strong>Sexo: </strong> {{user.genre}}</div>
-    <div><strong>Peso: </strong> {{user.weight}}</div>
-    <div><strong>Ciudad: </strong> {{user.city}}</div>
-    <div><strong>Hobbies: </strong> <ul class="people_list">
-        {{#each user.hobbies}}
-          <li class="list-hobbies">{{this}}</li>
-        {{/each}}
-      </ul>
+  <div class="Profile__content">
+    <div class="Profile__sidebar">
+      <div class="Avatar">
+        <img src="{{ user.avatarURL }}" class="Profile__avatar" alt="{{ user.name }}">
+      </div>
+        <div class="UserData">
+          <div class="UserDataItem"><strong>Nombre: </strong> {{user.name}}</div>
+          <div class="UserDataItem"><strong>Sexo: </strong> {{user.genre}}</div>
+          <div class="UserDataItem"><strong>Peso: </strong> {{user.weight}}</div>
+          <div class="UserDataItem"><strong>Ciudad: </strong> {{user.city}}</div>
+          <div class="UserDataItem"><strong>Hobbies: </strong> 
+            <ul class="UserDataItem__list">
+              {{#each user.hobbies}}
+                <li class="UserDataItem__list-item">
+                  <i class="fas fa-check"></i>
+                  {{this}}
+                  </li>
+              {{/each}}
+            </ul>
+          </div>
+        </div>
     </div>
+    <div class="Profile__container"></div>
+  </div>
 </div>
   
   

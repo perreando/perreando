@@ -304,7 +304,7 @@ input[type=checkbox] {
 .Profile__content{
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 .Profile__sidebar{
   width: 30%;
@@ -315,7 +315,6 @@ input[type=checkbox] {
 }
 .Profile__container{
   padding: 20px;
-  width: 269px;
   border: 1px solid #99c3cc;
 }
 .Profile__container div{
@@ -413,14 +412,26 @@ input[type=checkbox] {
   border: 0;
   height: 50px;
 }
-
 .list-hobbies{
   margin: 10px 0 0 20px;
 
 }
 
-
-
+.UserData{
+}
+.UserDataItem{
+  margin-bottom: 8px;
+}
+.UserDataItem__list{
+  margin-left: 15px;
+}
+.UserDataItem__list-item{
+  margin: 5px 0;;
+}
+.fa-check{
+  color: #43565a;
+  margin-right: 8px;
+}
 
 
 #autocomplete {
