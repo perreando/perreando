@@ -82,6 +82,11 @@
         <input type="hidden" id="locationWalk" name="locationWalk" />
       </div>
     </div>
+    <div class="FullWidth">
+      <div class="InputItem">
+        <textarea name="description" placeholder="Escribe una breve descripción">{{ user.description }}</textarea>
+      </div>
+    </div>
     <div class="Hobbies">
       {{#each hobbies as |hobbie|}}
         <div class="HobbiesItem input-checkbox">

@@ -369,12 +369,22 @@ input[type=checkbox] {
  margin-bottom: 8px;
  font-weight: bold;
 }
-.TwoCols .InputItem input, .TwoCols .InputItem select, .ThreeCols .InputItem select, .FullWidth .InputItem input{
+.TwoCols .InputItem input, 
+.TwoCols .InputItem select, 
+.ThreeCols .InputItem select, 
+.FullWidth .InputItem input,  
+.FullWidth .InputItem textarea{
   height: 40px;
   border: 1px solid #99c3cc;
   padding: 0 15px; 
   margin-bottom: 20px;
   background-color: white;
+}
+.FullWidth .InputItem textarea{
+  height: 120px;
+  resize: none;
+  overflow-y: scroll;
+  padding: 20px;
 }
 .InputAvatar{
   margin-bottom: 20px;
@@ -524,4 +534,7 @@ input[type=checkbox] {
 
 .CommentsList{
 
+}
+.Profile__container .Description{
+  margin-bottom: 50px;
 }

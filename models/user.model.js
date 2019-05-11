@@ -36,6 +36,9 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  description: {
+    type: String
+  },
   genre: {
     type: String,
     enum: constants.GENRE_DOG
