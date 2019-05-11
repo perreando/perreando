@@ -156,13 +156,16 @@ input[type=checkbox] {
   
 
 }
-.Menu__container a {
+.Menu__container a, .Menu__container span {
   margin: 0 20px;
   font-family: 'Open Sans', sans-serif;
   color: #43565a;
   position: relative;
   transition: width 1s ease-in-out;
   text-decoration: none;
+}
+.Menu__container span {
+  font-weight: bold;
 }
 .Menu__container a::after {
   content: '';
@@ -497,4 +500,22 @@ input[type=checkbox] {
 }
 #target {
   width: 345px;
+}
+
+
+.ProfileWall .Profile__container {
+  width: 100%;
+}
+.ProfileWall .Profile__container .map-container {
+  height: 250px;
+}
+.ProfileWall .Profile__container-title{
+  font-weight: bold;
+  font-size: 20px;
+  color: #43565a;
+  text-align: left;
+  margin: 0 auto 20px auto;
+}
+.Comments{
+  
 }
