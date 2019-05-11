@@ -509,6 +509,7 @@ input[type=checkbox] {
 }
 .ProfileWall .Profile__container .map-container {
   height: 250px;
+  margin-bottom: 35px;
 }
 .ProfileWall .Profile__container-title{
   font-weight: bold;
@@ -519,4 +520,8 @@ input[type=checkbox] {
 }
 .Comments{
   
+}
+
+.CommentsList{
+
 }

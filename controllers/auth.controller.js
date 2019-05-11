@@ -1,7 +1,7 @@
 const createError = require('http-errors');
 const mongoose = require('mongoose');
 const User = require('../models/user.model');
-//const Walks = require('../models/walks.model');
+const Walks = require('../models/walks.model');
 const passport = require('passport');
 
 const constants = require('../constants');
@@ -100,7 +100,6 @@ module.exports.profile = (req, res, next) => {
 }
 
 module.exports.doProfile = (req, res, next) => {
-  console.log(req.body);
   if (!req.body) {
     delete req.body.password;
   }
@@ -108,10 +107,14 @@ module.exports.doProfile = (req, res, next) => {
   if (req.file) {
     req.body.avatarURL = req.file.secure_url;
   }
+
+  
 //Si tenemos el user
   const user = req.user;
+  
   const returnedUser = Object.assign(user, req.body)
-  console.log(returnedUser, req.body)
+  // console.log(returnedUser, req.body)
+  
   user.save()
     .then(user => res.redirect('/profile'))
     .catch(error => {
@@ -125,6 +128,24 @@ module.exports.doProfile = (req, res, next) => {
         next(error);
       }
     });
+}
+
+module.exports.addWalk = (req, res, next) => {
+  const walk = new Walks({
+    location: {
+      type: 'Point',
+      coordinates: [req.body.lng, req.body.lat]
+    },
+    owner: req.user.id
+  })
+
+  walk.save()
+    .then(walk => res.json(walk))
+}
+
+module.exports.getWalks = (req, res, next) => {
+  Walks.find({ owner: req.user.id })
+    .then(walks => res.json(walks))
 }
 
 module.exports.wall = (req, res, next) => {

@@ -36,7 +36,7 @@
         <form action="/users/comments" method="POST">
         <input type="hidden" name="owner" value="{{user.id}}">
           <div class="form-group">
-          <label>Comentarios</label>
+          <label class="Profile__container-title">Comentarios</label>
           <textarea class="form-control {{#if errors.content }}is-invalid{{/if}}"
             name="content">{{comment.content}}</textarea>
         

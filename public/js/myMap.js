@@ -10,19 +10,31 @@ function initMap() {
     mapTypeId: 'roadmap'
   }); 
 
-  const myMap = new MyMap(map) 
+  const myMap = new MyMap(map)
+
+  axios.get('/get_walks')
+    .then(response => {
+      response.data.forEach(walk => {
+        const [lng, lat] = walk.location.coordinates
+
+        myMap.addMarker(lat, lng)
+      })
+    })
   
   setFormMapListeners(myMap)
 }
 
+const arr = [];
+
 function setFormMapListeners(myMap) {
   myMap.onClick((event) => {
     const { lat, lng } = event.latLng.toJSON()
-    console.log(lat, lng)
-
-    myMap.clearMarkers();
-    myMap.addMarker(lat, lng);
     
+    axios.post('/add_walk', { lat, lng })
+      .then(response => {
+        const [lng, lat] = response.data.location.coordinates
+        myMap.addMarker(lat, lng)
+      })
   })
 }
 

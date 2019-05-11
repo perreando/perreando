@@ -5,7 +5,7 @@ const walkSchema = new mongoose.Schema({
   owner: {type: mongoose.Types.ObjectId, ref: 'User' },
   location: {
     type: {
-      type: [String],
+      type: String,
       default: 'Point'
     },
     coordinates: [Number]
