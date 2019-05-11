@@ -273,6 +273,9 @@ input[type=checkbox] {
   box-shadow: 0 0 14px 0 rgba(0,0,0,0.04);
   background-color: #ffffff;
 }
+.UserList__item:hover{
+  text-decoration: none;
+}
 .UserList__item-avatar {
   margin-bottom: 20px;
   height: 160px;
@@ -287,14 +290,17 @@ input[type=checkbox] {
   align-items: center;
   max-width: initial;
 }
-.UserList__item-email{
-
+.UserList__item-city{
+  font-size: 13px;
+  font-weight: bold;
+  color: #99c3cc;
 }
 .UserList__item-name{
   font-weight: bold;
   text-transform: uppercase;
   font-size: 15px;
   color: #43565a;
+  margin-bottom: 5px;
 }
 .Profile{  
   padding: 50px 0 120px 0;

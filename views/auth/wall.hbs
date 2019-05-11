@@ -27,8 +27,10 @@
         </div>
     </div>
     <div class="Profile__container">
+      {{#if user.description}}
       <div class="Profile__container-title">¡Así soy yo!</div>
       <div class="Description">{{user.description}}</div>
+      {{/if}}
       <div class="Profile__container-title">Tus últimos paseos</div>
       <div class="map-container" id="map"></div>
 
