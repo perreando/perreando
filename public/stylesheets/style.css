@@ -374,6 +374,7 @@ input[type=checkbox] {
   border: 1px solid #99c3cc;
   padding: 0 15px; 
   margin-bottom: 20px;
+  background-color: white;
 }
 .InputAvatar{
   margin-bottom: 20px;

@@ -65,7 +65,7 @@ const userSchema = new mongoose.Schema({
   },
   city2: {
     type: String,
-    default: 'My city'
+    default: ''
   },
   hobbies: {
     type: [String],

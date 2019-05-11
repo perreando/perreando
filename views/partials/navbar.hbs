@@ -1,15 +1,12 @@
+{{#if session.email }}
 <nav class="Menu">
   <div class="Menu__container">
-    {{!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button> --}}
-    {{#if session.email }}
     <span>¡Hola {{user.name}}!</span>
     <a href="/profile">Edit Profile</a>
     <a href="/users/{{ session.id }}">My Profile</a>
     <a href="/users">Pet Friends</a>
     <a href="/logout">Logout</a>
-    {{/if}}
+    
   </div>
 </nav>
+{{/if}}

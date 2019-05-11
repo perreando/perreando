@@ -11,7 +11,9 @@
       <img src="{{ user.avatarURL }}" class="Profile__avatar" alt="{{ user.name }}">
     </div>
     <div class="UserList__item-name">{{ user.name }}</div>
+    {{#if user.city2 }}
     <div class="UserList__item-name">{{ user.city2 }}</div>
+    {{/if}}
   </a>
   {{/each}}
 </div>
