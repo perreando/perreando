@@ -10,6 +10,9 @@ const BREED_DOG = constants.BREED_DOG
 const WEIGHT_DOG = constants.WEIGHT_DOG
 const HOBBIES_DOG = constants.HOBBIES_DOG
 
+const Comment = require('./comments.model');
+const Walks = require('./walks.model');
+
 const userSchema = new mongoose.Schema({
   email: {
     type: String,
@@ -101,6 +104,12 @@ userSchema.index({location: '2dsphere'});
 userSchema.methods.checkPassword = function(password) {
   return bcrypt.compare(password, this.password);
 }
+
+userSchema.virtual('comments', {
+  ref: 'Comment', // The model to use
+  localField: '_id', // Find people where `localField`
+  foreignField: 'owner' // is equal to `foreignField`
+});
 
 const User = mongoose.model('User', userSchema);
 module.exports = User;

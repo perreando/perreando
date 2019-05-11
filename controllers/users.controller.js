@@ -15,6 +15,7 @@ module.exports.details = (req, res, next) => {
     next(createError(404, 'Este usuario no se ha encontrado'))
   } else {
     User.findById(id)
+    .populate('comments')
     .then(user => {
       if(user) {
         //.then(user=> res.render('auth/wall', {user}))

@@ -1,14 +1,12 @@
 const mongoose = require('mongoose');
 
 const commentSchema = new mongoose.Schema({
-  owner: {type: userSchema.Types.ObjectId, ref: 'User' },
-  comment: {
-    type: [String],
-    default: [] 
+  owner: {type: mongoose.Types.ObjectId, ref: 'User' },
+  content: {
+    type: String,
+    required: true
   }
 }, { timestamps: true })
 
-walkSchema.index({location: '2dsphere'});
-
-const Comments = mongoose.model('Comments', commentSchema);
-module.exports = Walks;
+const Comment = mongoose.model('Comment', commentSchema);
+module.exports = Comment;

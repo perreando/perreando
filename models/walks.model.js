@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 
 const walkSchema = new mongoose.Schema({
-  owner: {type: userSchema.Types.ObjectId, ref: 'User' },
+  owner: {type: mongoose.Types.ObjectId, ref: 'User' },
   location: {
     type: {
       type: [String],
