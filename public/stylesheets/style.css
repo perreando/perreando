@@ -315,9 +315,14 @@ input[type=checkbox] {
 }
 .Profile__container{
   padding: 20px;
-  width: 70%;
+  width: 269px;
   border: 1px solid #99c3cc;
 }
+.Profile__container div{
+  margin-bottom: 10px;
+
+}
+
 .Profile__sidebar .btn{
   display: block;
   margin: 0 auto;
@@ -409,7 +414,10 @@ input[type=checkbox] {
   height: 50px;
 }
 
+.list-hobbies{
+  margin: 10px 0 0 20px;
 
+}
 
 
 
