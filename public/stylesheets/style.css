@@ -392,6 +392,15 @@ input[type=checkbox] {
   overflow-y: scroll;
   padding: 20px;
 }
+.CommentsItem{
+  height: 40px;
+  padding: 15px 20px 40px 20px; 
+  margin: 0 0 20px 30px;
+  background-color: white;
+  -webkit-box-shadow: inset 3px 3px 19px 0px rgba(153,195,204,0.23);
+  -moz-box-shadow: inset 3px 3px 19px 0px rgba(153,195,204,0.23);
+  box-shadow: inset 3px 3px 19px 0px rgba(153,195,204,0.23);
+}
 .InputAvatar{
   margin-bottom: 20px;
 }
@@ -543,4 +552,8 @@ input[type=checkbox] {
 }
 .Profile__container .Description{
   margin-bottom: 50px;
+}
+
+.btn-send{
+  display: block!important
 }

@@ -1,7 +1,7 @@
 {{#if session.email }}
 <nav class="Menu">
   <div class="Menu__container">
-    <span>¡Hola {{user.name}}!</span>
+    <span>¡Hola {{session.name}}!</span>
     <a href="/profile">Edit Profile</a>
     <a href="/users/{{ session.id }}">My Profile</a>
     <a href="/users">Pet Friends</a>

@@ -3,6 +3,21 @@
     <h1>
       Nuestros peluditos
     </h1>
+    <form action="/users" method="GET">
+  <div class="form-row">
+    <div class="form-group col-10">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text"><i class="fas fa-paw"></i></div>
+        </div>
+        <input type="text" class="form-control" name="name" placeholder="Busca tu amiguete..." value="{{ name }}">
+      </div>
+    </div>
+    <div class="form-actions col-2">
+      <button type="submit" class="ButtonSubmit btn btn-block btn-primary">Buscar</button>
+    </div>
+  </div>
+</form>
   </div>
   <div class="UserList__content">
   {{#each users as |user|}}

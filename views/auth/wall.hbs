@@ -50,12 +50,12 @@
           </div>
           {{/if}}
         </div>
-          <div class="d-flex">
-          <button type="submit" class="ButtonSubmit btn btn-primary mr-3">Enviar</button>
+          <div class="d-flex btn-send">
+          <button type="submit" class="ButtonSubmit btn btn-primary mr-3 ">Enviar</button>
         </div>
         <div class="CommentsList">
           {{#each user.comments }}
-            <div calss="CommentsItem">{{this.content}}</div>
+            <div class="CommentsItem">{{this.content}}</div>
           {{/each}}
         </div>
       </div>
